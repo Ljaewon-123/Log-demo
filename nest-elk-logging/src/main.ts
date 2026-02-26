@@ -29,6 +29,12 @@ async function bootstrap() {
             winston.format.json(), // ELK 연동을 위해 JSON 포맷 권장
           ),
         }),
+        new winston.transports.Http({
+          host: 'localhost',
+          port: 5044,
+          path: '/',
+          format: winston.format.json()
+        })
       ],
     }),
   });
